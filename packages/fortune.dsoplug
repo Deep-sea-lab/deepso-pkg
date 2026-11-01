@@ -1,0 +1,10 @@
+{
+  "format": "dsoplug",
+  "version": 1,
+  "id": "fortune",
+  "name": "Fortune Starter",
+  "description": "Lifecycle-safe starter manifest for a future fortune process. No startup code is included.",
+  "executorTargetIndex": 1,
+  "roles": [],
+  "executorBlocks": {}
+}
