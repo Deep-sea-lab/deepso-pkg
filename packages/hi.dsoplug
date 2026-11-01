@@ -1,0 +1,236 @@
+{
+  "format": "dsoplug",
+  "version": 1,
+  "id": "hi",
+  "name": "Hi Smile",
+  "description": "After the user enters the exact shell command hi, waits for the shared process gate, then shows a smiling hi bubble for three seconds. The line wait is latched until the next command to avoid repeats.",
+  "executorTargetIndex": 1,
+  "roles": [],
+  "executorBlocks": {
+    "deepso-hi-hat": {
+      "opcode": "event_whenflagclicked",
+      "next": "deepso-hi-gate-wait",
+      "parent": null,
+      "inputs": {},
+      "fields": {},
+      "shadow": false,
+      "topLevel": true,
+      "x": 420,
+      "y": 160
+    },
+    "deepso-hi-gate-wait": {
+      "opcode": "control_wait_until",
+      "next": "deepso-hi-loop",
+      "parent": "deepso-hi-hat",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "deepso-hi-gate-equals"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-gate-equals": {
+      "opcode": "operator_equals",
+      "next": null,
+      "parent": "deepso-hi-gate-wait",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "deepso-hi-gate-var",
+          [
+            12,
+            "DSO_PROC_START",
+            "y/@wBlajB;m./#e_m6|W"
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            4,
+            "0"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-gate-var": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "deepso-hi-gate-equals",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "DSO_PROC_START",
+          "y/@wBlajB;m./#e_m6|W"
+        ]
+      },
+      "shadow": true,
+      "topLevel": false
+    },
+    "deepso-hi-loop": {
+      "opcode": "control_forever",
+      "next": null,
+      "parent": "deepso-hi-gate-wait",
+      "inputs": {
+        "SUBSTACK": [
+          2,
+          "deepso-hi-command-wait"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-command-wait": {
+      "opcode": "control_wait_until",
+      "next": "deepso-hi-say",
+      "parent": "deepso-hi-loop",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "deepso-hi-command-equals"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-command-equals": {
+      "opcode": "operator_equals",
+      "next": null,
+      "parent": "deepso-hi-command-wait",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "deepso-hi-command-var",
+          [
+            12,
+            "DSO_LINE",
+            "HLq~@cRc8CT/zNYscZ|k"
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "hi"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-command-var": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "deepso-hi-command-equals",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "DSO_LINE",
+          "HLq~@cRc8CT/zNYscZ|k"
+        ]
+      },
+      "shadow": true,
+      "topLevel": false
+    },
+    "deepso-hi-say": {
+      "opcode": "looks_sayforsecs",
+      "next": "deepso-hi-clear-wait",
+      "parent": "deepso-hi-command-wait",
+      "inputs": {
+        "MESSAGE": [
+          1,
+          [
+            10,
+            "☺ hi"
+          ]
+        ],
+        "SECS": [
+          1,
+          [
+            4,
+            "3"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-clear-wait": {
+      "opcode": "control_wait_until",
+      "next": null,
+      "parent": "deepso-hi-say",
+      "inputs": {
+        "CONDITION": [
+          2,
+          "deepso-hi-clear-not"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-clear-not": {
+      "opcode": "operator_not",
+      "next": null,
+      "parent": "deepso-hi-clear-wait",
+      "inputs": {
+        "OPERAND": [
+          2,
+          "deepso-hi-clear-equals"
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-clear-equals": {
+      "opcode": "operator_equals",
+      "next": null,
+      "parent": "deepso-hi-clear-not",
+      "inputs": {
+        "OPERAND1": [
+          3,
+          "deepso-hi-clear-var",
+          [
+            12,
+            "DSO_LINE",
+            "HLq~@cRc8CT/zNYscZ|k"
+          ]
+        ],
+        "OPERAND2": [
+          1,
+          [
+            10,
+            "hi"
+          ]
+        ]
+      },
+      "fields": {},
+      "shadow": false,
+      "topLevel": false
+    },
+    "deepso-hi-clear-var": {
+      "opcode": "data_variable",
+      "next": null,
+      "parent": "deepso-hi-clear-equals",
+      "inputs": {},
+      "fields": {
+        "VARIABLE": [
+          "DSO_LINE",
+          "HLq~@cRc8CT/zNYscZ|k"
+        ]
+      },
+      "shadow": true,
+      "topLevel": false
+    }
+  }
+}
