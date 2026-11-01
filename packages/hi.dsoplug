@@ -145,7 +145,7 @@
     },
     "deepso-hi-add-plugin": {
       "opcode": "data_addtolist",
-      "next": "add-op",
+      "next": "deepso-hi-add-op",
       "parent": "deepso-hi-boot-ready",
       "inputs": {
         "ITEM": [
@@ -167,7 +167,7 @@
     },
     "deepso-hi-add-op": {
       "opcode": "data_addtolist",
-      "next": "add-ca",
+      "next": "deepso-hi-add-ca",
       "parent": "deepso-hi-add-plugin",
       "inputs": {
         "ITEM": [
@@ -189,7 +189,7 @@
     },
     "deepso-hi-add-ca": {
       "opcode": "data_addtolist",
-      "next": "add-cb",
+      "next": "deepso-hi-add-cb",
       "parent": "deepso-hi-add-op",
       "inputs": {
         "ITEM": [
@@ -211,7 +211,7 @@
     },
     "deepso-hi-add-cb": {
       "opcode": "data_addtolist",
-      "next": "add-cc",
+      "next": "deepso-hi-add-cc",
       "parent": "deepso-hi-add-ca",
       "inputs": {
         "ITEM": [
@@ -233,7 +233,7 @@
     },
     "deepso-hi-add-cc": {
       "opcode": "data_addtolist",
-      "next": "add-def",
+      "next": "deepso-hi-add-def",
       "parent": "deepso-hi-add-cb",
       "inputs": {
         "ITEM": [
@@ -255,7 +255,7 @@
     },
     "deepso-hi-add-def": {
       "opcode": "data_addtolist",
-      "next": "add-init",
+      "next": "deepso-hi-add-init",
       "parent": "deepso-hi-add-cc",
       "inputs": {
         "ITEM": [
@@ -317,7 +317,7 @@
     },
     "deepso-hi-add-init": {
       "opcode": "data_addtolist",
-      "next": "recompile",
+      "next": "deepso-hi-recompile",
       "parent": "deepso-hi-add-def",
       "inputs": {
         "ITEM": [
