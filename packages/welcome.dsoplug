@@ -1,0 +1,10 @@
+{
+  "format": "dsoplug",
+  "version": 1,
+  "id": "welcome",
+  "name": "Welcome Starter",
+  "description": "Lifecycle-safe starter manifest for a future welcome process. No startup code is included.",
+  "executorTargetIndex": 1,
+  "roles": [],
+  "executorBlocks": {}
+}
